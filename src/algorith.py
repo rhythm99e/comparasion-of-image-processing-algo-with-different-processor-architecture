@@ -1,5 +1,5 @@
 import cv2
-import numpuy as np
+import numpy as np
 import time
 
 class Algorithm:
@@ -17,7 +17,10 @@ class Algorithm:
       return{
          "algorithm":self.name,
          "total_ops":total_ops,
-         "output_pixels":output_pixel
+         "output_pixels":output_pixel,
+         "kernel":self.kernel,
+        "data_read_per_pixel":self.kernel*self.kernel, 
+        "data_write_per_pixel":1
       }
    
 
@@ -80,5 +83,3 @@ ALGORITHMS = {
     'blur': GaussianBlur(),
     'median': MedianFilter(),
 }
-
-  
